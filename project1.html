@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream High Tours</title>
+  <link rel="stylesheet" href="project1.css">
+</head>
+<body>
+
+
+  <form id="bookingForm" action="http://127.0.0.1:5000/submit" method="post">
+      <h1>Dream High Tours</h1>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="John snow" required>
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="john@example.com" required>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="1234567890" required>
+      <button type="submit">Submit</button>
+      <div id="validationErrors" style="color: red;"></div> <!-- Display validation errors here -->
+  </form>
+
+  <!-- Modal dialog for displaying alerts -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="alertMessage"></p>
+    </div>
+  </div>
+  
+
+  <script src="project1.js"></script>
+</body>
+</html>
