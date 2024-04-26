@@ -3,11 +3,11 @@ import os
 import webbrowser
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Secret key for session management
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'your_secret_key')  # Secret key for session management
 
 # Define the directories to store the data files
-data_directory = 'form_data'
-blocked_users_directory = 'blocked_users_data'
+data_directory = os.environ.get('DATA_DIRECTORY', 'form_data')
+blocked_users_directory = os.environ.get('BLOCKED_USERS_DIRECTORY', 'blocked_users_data')
 
 # Ensure the data directories exist
 if not os.path.exists(data_directory):
@@ -76,5 +76,6 @@ def submit_html():
 
 if __name__ == '__main__':
     # Open project1.html in the default web browser when the Flask app starts
-    webbrowser.open('http://127.0.0.1:5500/project1.html')
+    if os.environ.get('FLASK_ENV') == 'development':
+        webbrowser.open('http://127.0.0.1:5000/')
     app.run(debug=False, host='0.0.0.0')
